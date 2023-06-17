@@ -1,0 +1,78 @@
+package cgg.hibernate.xmlmapping;
+
+public class Employee {
+	private String ename;
+	private int eid;
+	private double salary;
+	private int list_index;
+	private Department department;
+
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(String ename, int eid) {
+		super();
+		this.ename = ename;
+		this.eid = eid;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public int getList_index() {
+		return list_index;
+	}
+
+	public void setList_index(int list_index) {
+		this.list_index = list_index;
+	}
+
+	public Employee(String ename, int eid, double salary, int list_index, Department department) {
+		super();
+		this.ename = ename;
+		this.eid = eid;
+		this.salary = salary;
+		this.list_index = list_index;
+		this.department = department;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public Employee(String ename, int eid, double salary, Department department) {
+		super();
+		this.ename = ename;
+		this.eid = eid;
+		this.salary = salary;
+		this.department = department;
+	}
+
+	public String getEname() {
+		return ename;
+	}
+
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+
+	public int getEid() {
+		return eid;
+	}
+
+	public void setEid(int eid) {
+		this.eid = eid;
+	}
+
+}

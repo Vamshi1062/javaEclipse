@@ -1,0 +1,9 @@
+package cgg.hibernate.xmlmapping;
+
+public class XMLMappingExample {
+
+	public static void main(String[] args) {
+		 
+	}
+
+}

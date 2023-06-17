@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="your.package.name">
+    <class name="cgg.hibernate.xmlmapping.Department" table="Department">
+        <id name="id" column="deptid">
+            <generator class="native" />
+        </id>
+        <property name="deptname" column="deptname" type="string" />
+
+        <set name="employees" cascade="all-delete-orphan" inverse="true">
+            <key column="deptid" />
+            <one-to-many class="Employee" />
+        </set>
+    </class>
+</hibernate-mapping>

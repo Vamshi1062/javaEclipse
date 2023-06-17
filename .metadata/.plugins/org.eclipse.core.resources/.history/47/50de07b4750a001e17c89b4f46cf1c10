@@ -1,0 +1,31 @@
+package cgg.lambdas;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class SampleExample {
+
+	public static void main(String[] args) {
+		List<Person> people = Arrays.asList(new Person("Raj", "Shekar", 21), new Person("Sanju", "Pottabttni", 22),
+				new Person("Ajay", "Mahankali", 20), new Person("Vamshi", "Botla", 21));
+		// step1 sort list by last name
+		Collections.sort(people, (p1, p2) -> p1.getLname().compareTo(p2.getLname()));
+		// step2 create a method that prints all the elements in the last
+		System.out.println("Printing all Persons");
+		printAll(people);
+		//step3 create a method that prints all persons with last name beginning with  "s"
+		System.out.println("-------------------------------------------------");
+		System.out.println("Printing all Persons with last name 'S' ");
+
+	}
+
+	private static void printAll(List<Person> persons) {
+		for (Person person : persons) {
+			System.out.println(person.getLname().startsWith(s));
+		}
+	}
+	private static void printConditionally(List<Person> persons) {
+		
+	}
+}

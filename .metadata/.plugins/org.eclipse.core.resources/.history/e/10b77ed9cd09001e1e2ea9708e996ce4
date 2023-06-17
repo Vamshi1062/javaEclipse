@@ -1,0 +1,11 @@
+package cgg.lambdas;
+
+import java.util.Comparator;
+
+public class EmpComparator implements Comparator<T> {
+@Override
+public int compare(Employee e1,Employee e2)
+return compare(e1.getName(),e2.getName());
+}
+
+ 

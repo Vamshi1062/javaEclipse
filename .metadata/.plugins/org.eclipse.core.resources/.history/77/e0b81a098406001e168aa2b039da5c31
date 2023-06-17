@@ -1,0 +1,41 @@
+package cgg.hibernate.criteria;
+
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
+
+import cgginterns.hibernate.Student;
+
+public class CriteriaExample {
+
+	public static void main(String[] args) {
+		 SessionFactory fact=new Configuration().configure().buildSessionFactory();
+		 Session ses=fact.openSession();
+		 
+		  Criteria criteria = ses.createCriteria(Student.class);
+		  criteria.add(Restrictions.eq("certi.course","python"));
+		  List<Student> list=criteria.list();
+		  for (Student s:list) {
+			  System.out.println(s);
+		  }
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 ses.close();
+		 fact.close();
+
+	}
+
+}

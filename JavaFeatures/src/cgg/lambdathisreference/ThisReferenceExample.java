@@ -1,0 +1,35 @@
+package cgg.lambdathisreference;
+
+public class ThisReferenceExample {
+	//instance method-we can use this--which refers to class
+	public void process() {
+		doOperate(30,n->{
+			System.out.println(30+n);
+			System.out.println(this);
+		});
+	}
+	public static void main(String[] args) {
+          int b=10;
+          //Anonymous Class
+//          ThisReferenceExample.doOperate(b,new Operation() {
+//
+//			@Override
+//			public void operate(int i) {
+//				 System.out.println(b+i);
+//				 System.out.println(this);
+//				
+//			}
+//        	  
+//          });
+          doOperate(b,n->{
+        	  System.out.println(b+n);
+        	  //System.out.println(this);gives an error
+        	  //with in static main you can not use this
+          });
+          ThisReferenceExample example = new ThisReferenceExample();
+          example.process();
+	}
+	private static void doOperate(int i,Operation o) {
+		o.operate(i);
+	}
+}

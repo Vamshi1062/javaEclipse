@@ -1,0 +1,58 @@
+package com.cgg.eis.pl;
+import java.util.Scanner;
+
+import com.cgg.eis.bean.Employee;
+import com.cgg.eis.exception.EmployeeException;
+import com.cgg.eis.service.EmployeeService;
+import com.cgg.eis.service.EmployeeServiceImpl;
+public class Main {
+
+
+		 public static void main(String[] args) throws EmployeeException {
+			 EmployeeServiceImpl app = new EmployeeService();
+			 Scanner scanner = new Scanner(System.in);
+		        while (true) {
+		            System.out.println("\nMedical Insurance App");
+		            System.out.println("1. Add Employee Details");
+		            System.out.println("2. View Employees by Insurance Scheme");
+		            System.out.println("3. Delete Employee Details");
+		            System.out.println("4. Exit");
+		            System.out.print("Enter your choice (1-4): ");
+		            int choice = scanner.nextInt();
+		            scanner.nextLine(); // Consume newline character
+
+		            switch (choice) {
+		                case 1:
+		                    System.out.print("Enter employee ID: ");
+		                    String id = scanner.nextLine();
+		                    System.out.print("Enter employee name: ");
+		                    String name = scanner.nextLine();
+		                    System.out.print("Enter salary: ");
+		                    Double salary = scanner.nextDouble();
+		                    System.out.println("Enter Designation");
+		                    String designation = scanner.nextLine();
+		                    String insuranceScheme=findInsuranceScheme(salary,designation);
+		                    Employee employee = new Employee(id, name,salary,designation,insuranceScheme);
+		                    app.addEmployee(employee);
+		                    break;
+		                case 2:
+		                    System.out.print("Enter insurance scheme: ");
+		                    insuranceScheme = scanner.nextLine();
+		                    app.viewEmployeesByInsuranceScheme(insuranceScheme);
+		                    break;
+		                case 3:
+		                    System.out.print("Enter employee ID to delete: ");
+		                    String employeeId = scanner.nextLine();
+		                    app.deleteEmployee(employeeId);
+		                    break;
+		                case 4:
+		                    System.out.println("Exiting the application. Goodbye!");
+		                    System.exit(0);
+		                default:
+		                    System.out.println("Invalid choice. Please enter a valid option.");
+		            }
+		        }
+     
+	}
+
+}

@@ -1,0 +1,17 @@
+package cgg.lambdas;
+
+public class LambdaExample {
+
+	public static void main(String[] args) {
+		 
+		lambdaWithZeroParam();
+
+	}
+
+	private static void lambdaWithZeroParam() {
+		MyInterface1 i1=()->System.out.println("Zero parameter lambda method");//lambda is defined
+		
+		i1.meth1();//calling lambda explicitly with interface
+	}
+
+}

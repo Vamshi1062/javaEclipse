@@ -1,0 +1,13 @@
+package cgg.io;
+
+import java.io.File;
+
+public class MkDirDemo {
+
+	public static void main(String[] args) {
+		 File f1=new File("d:/java programs/abc");
+		 f1.mkdir();
+
+	}
+
+}

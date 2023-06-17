@@ -1,0 +1,46 @@
+package cgg.functionalinterface;
+
+public class Test {
+
+	public static void main(String[] args) {
+		//createThreadUsingAnonymousClass();
+		//createThreadUsingLambda();
+		
+		createCustomLambda();
+
+	}
+
+	private static void createCustomLambda() {
+		
+		//defining lambda
+		//left side should be reference(i.e My Interface)
+		 MyInterface i=("vamshi")-> System.out.println("testing lambda");
+		 
+		 //Invoking Lambda
+		 i.meth1();
+		
+	}
+
+	private static void createThreadUsingLambda() {
+		//Lambda Expressions
+		 Runnable r=()->System.out.println("My Runnable ...");
+		Thread t=new Thread(r);
+		t.start();
+	}
+
+	private static void createThreadUsingAnonymousClass() {
+		//Anonymous class
+		 Runnable r=new Runnable() {
+
+			@Override
+			public void run() {
+				 System.out.println("hello thread");
+				
+			}
+			 
+		 };
+		 Thread t=new Thread(r);
+		 t.start();
+	}
+
+	}

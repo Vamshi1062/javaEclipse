@@ -1,0 +1,10 @@
+package cgg.functionalinterface;
+@FunctionalInterface
+public interface MyInterface {
+	
+	void meth1(String name);
+	//void meth2(); it gives error because it allows only one abstract method
+	
+	boolean equals(Object o);//but not considered as abstract method because its coming from object class
+
+}

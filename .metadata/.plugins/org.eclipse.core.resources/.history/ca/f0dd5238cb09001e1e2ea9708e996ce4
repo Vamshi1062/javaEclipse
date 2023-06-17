@@ -1,0 +1,109 @@
+package cgg.lambdas;
+
+public class LambdaExample {
+
+	public static void main(String[] args) {
+		 
+		lambdaWithZeroParam();
+		System.out.println("----------------------------------");
+		anonymousZeroParam();
+		System.out.println("----------------------------------");
+		lambdaWithOneParam();
+		System.out.println("----------------------------------");
+		lambdawithtwoparam();
+		System.out.println("----------------------------------");
+		lambdaWithParamsAndReturnType();
+		System.out.println("----------------------------------");
+		lambdaToAdd();
+        System.out.println("----------------------------------");
+        lambdaLength();
+        System.out.println("----------------------------------");
+        lambdaDouble();
+        System.out.println("----------------------------------");
+        lambdaSafeDivide();
+        System.out.println("----------------------------------");
+        lambdaPerform();
+        System.out.println("----------------------------------");
+	}
+
+	private static void lambdaPerform() {
+		 Perform p=()->System.out.println("Hello");
+		 doPerform(p);
+		
+	}
+
+	private static void doPerform(Perform p) {
+		 p.foo();
+		
+	}
+
+	private static void lambdaSafeDivide() {
+		 SafeDivide s=(i1,i2)->{
+			 if(i2!=0) {
+				 return i1/i2;
+			 }
+			 else {
+				 return 0;
+			 }
+		 };
+		 System.out.println("division is "+s.divide(10, 3));
+		
+	}
+
+	private static void lambdaDouble() {
+		 DoubleNum n=i->2*i;
+		 System.out.println("Double is "+n.doublenum(9));
+		
+	}
+
+	private static void lambdaLength() {
+		 LengthOfString l=s->s.length();
+		 System.out.println("length is "+l.find("vamshi"));
+		
+	}
+
+	private static void lambdaToAdd() {
+		 AddNumber a=(i1,i2)->i1+i2;
+		 System.out.println("sum is "+a.add(4,5));
+		
+	}
+
+	private static void lambdaWithParamsAndReturnType() {
+		 MyInterface4 i4=(a1,a2)->a1>a2;
+		 System.out.println(i4.test(3, 2));
+	}
+
+	private static void lambdawithtwoparam() {
+		 MyInterface3 i3=(name,age)->System.out.println("hello my name is "+name+" and  age is "+age);
+		 
+		 i3.meth3("vamshi",21);
+		
+	}
+
+	private static void lambdaWithOneParam() {
+		 MyInterface2 i2=(name)->System.out.println("hello "+name);
+		 
+		 i2.meth2("vamshi");
+		
+	}
+
+	private static void anonymousZeroParam() {
+		 MyInterface1 i1=new MyInterface1() {
+
+			@Override
+			public void meth1() {
+				// TODO Auto-generated method stub
+				System.out.println("Anonymous class");
+			}
+			 
+		 };
+		i1.meth1();
+	}
+
+	private static void lambdaWithZeroParam() {
+		MyInterface1 i1=()->System.out.println("Zero parameter lambda method");//lambda is defined
+		
+		i1.meth1();//calling lambda explicitly with interface
+	}
+
+}

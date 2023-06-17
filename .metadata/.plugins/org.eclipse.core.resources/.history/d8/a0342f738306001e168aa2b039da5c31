@@ -1,0 +1,54 @@
+package cgg.hibernate.criteria;
+
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import cgginterns.hibernate.Student;
+
+public class CriteriaExample {
+
+	public static void main(String[] args) {
+		 SessionFactory fact=new Configuration().configure().buildSessionFactory();
+		 Session ses=fact.openSession();
+		 
+		 CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+
+		// Create a CriteriaQuery object specifying the result type
+		CriteriaQuery<Student> criteriaQuery = criteriaBuilder.createQuery(Student.class);
+
+		// Define the root entity (table) for the query
+		Root<Student> root = criteriaQuery.from(Student.class);
+
+		// Build the criteria query
+		criteriaQuery.select(root);
+
+		// Execute the query and retrieve the results
+		List<Student> students = ses.createQuery(criteriaQuery).getResultList();
+
+		// Process the results as needed
+		for (Student student : students) {
+		    System.out.println(student.getName());
+		}
+
+		// Close the session when finished
+
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 ses.close();
+		 fact.close();
+
+	}
+
+}

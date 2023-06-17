@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author CGG
+ *
+ */
+module MainApp {
+}

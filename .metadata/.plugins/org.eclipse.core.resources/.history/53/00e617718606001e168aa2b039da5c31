@@ -1,0 +1,43 @@
+package cgg.hibernate.criteria;
+
+import java.util.List;
+
+ 
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+ 
+import cgginterns.hibernate.map1.Brand;
+import cgginterns.hibernate.map1.Product;
+
+public class CriteriaExample {
+
+	public static void main(String[] args) {
+		 SessionFactory fact=new Configuration().configure().buildSessionFactory();
+		 Session ses=fact.openSession();
+		 
+		  Criteria criteria = ses.createCriteria(Brand.class);
+		  //criteria.add(Restrictions.gt("id",100));
+		  //criteria.add(Restrictions.like("certi.course","H%"));
+		  
+
+		  List<Brand> list=criteria.list();
+		  for (Brand brand:list) {
+			  System.out.println(brand);
+	            List<Product> products = brand.getProducts();
+	            for (Product product : products) {
+	                System.out.println("  " + product);
+	            }
+		  }
+		 
+		 
+		 
+		 ses.close();
+		 fact.close();
+
+	}
+
+}

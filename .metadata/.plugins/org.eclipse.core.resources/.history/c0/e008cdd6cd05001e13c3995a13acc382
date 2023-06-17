@@ -1,0 +1,26 @@
+package cgg.hibernate.xmlmapping;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class XMLMappingExample2 {
+
+	public static void main(String[] args) {
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
+		Session session = factory.openSession();
+		Department  d1 = new Department(1,"ECE");
+		Employee  e1 = new Employee("abc",11,10000,d1);
+		Transaction tx = session.beginTransaction();
+		session.save(e1);
+		session.save(d1);
+		
+		tx.commit();
+		session.close();
+		factory.close();
+
+	}
+
+}

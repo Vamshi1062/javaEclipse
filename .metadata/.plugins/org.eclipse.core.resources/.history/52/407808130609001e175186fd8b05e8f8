@@ -1,0 +1,21 @@
+package cgg.defaultandstaticmethods;
+
+import java.util.ArrayList;
+
+public class Test {
+
+	public static void main(String[] args) {
+		 MyInterface m=new myClass();
+		 ArrayList<Student> list = new ArrayList<Student>();
+		 list.add(new Student("xyz",20));
+		 list.add(new Student("abc",30));
+		 list.add(new Student("pqr",10));
+		 list.add(new Student("lmn",5));
+		 
+		 List<Student> students=myInterface.sortStudents(list);
+  for (Student student : list) {
+	System.out.println(student.getName()+"\t"+student.getAge());
+}
+	}
+
+}

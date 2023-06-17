@@ -1,0 +1,30 @@
+package cgg.hibernate.pagination;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+public class HQLPagination {
+
+	public static void main(String[] args) {
+		 SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		 Session session = factory.openSession();
+		 
+		 Query q = session.createQuery("from Student ");
+		 
+		 //Implementing pagination using hibernate
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 session.close();
+		 factory.close();
+
+	}
+
+}

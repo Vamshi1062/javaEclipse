@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cgg.hibernate.xmlmapping.Employee">
+    <class name="Employee" table="employee" entity-name="CGGEmployee">
+        <id name="eid" column="e_id">
+            <generator class="native" />
+        </id>
+        <property name="ename" column="employee_name" type="string" />
+        <property name="salary" column="employee_salary" type="double"/>
+
+        <many-to-one name="Department" class="cgg.hibernate.xmlmapping.Department" column="deptid" />
+    </class>
+</hibernate-mapping>

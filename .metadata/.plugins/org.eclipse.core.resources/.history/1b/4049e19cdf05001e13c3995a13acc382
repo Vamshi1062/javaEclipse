@@ -1,0 +1,52 @@
+package cgg.hibernate.xmlmapping;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Department {
+	private int deptid;
+	private String deptname;
+	private List<Employeee> employees = new ArrayList<>();
+	public Department() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Department(int deptid, String deptname) {
+		super();
+		this.deptid = deptid;
+		this.deptname = deptname;
+	}
+	
+
+	public int getDeptid() {
+		return deptid;
+	}
+
+	public List<Employeee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(ArrayList<Employeee> list) {
+		this.employees = (List<Employeee>) list;
+	}
+
+	public void setDeptid(int deptid) {
+		this.deptid = deptid;
+	}
+
+	public Department(int deptid, String deptname, List<Employeee> employees) {
+		super();
+		this.deptid = deptid;
+		this.deptname = deptname;
+		this.employees = employees;
+	}
+
+	public String getDeptname() {
+		return deptname;
+	}
+
+	public void setDeptname(String deptname) {
+		this.deptname = deptname;
+	}
+}

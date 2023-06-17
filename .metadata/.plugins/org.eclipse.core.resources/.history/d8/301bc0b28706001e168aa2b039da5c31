@@ -1,0 +1,45 @@
+package cgg.hibernate.criteria;
+
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import cgginterns.hibernate.map1.Brand;
+import cgginterns.hibernate.map1.Product;
+
+public class Example2 {
+
+    public static void main(String[] args) {
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Brand> criteriaQuery = criteriaBuilder.createQuery(Brand.class);
+
+        Root<Brand> brandRoot = criteriaQuery.from(Brand.class);
+        Join<Brand, Product> productJoin = brandRoot.join("product");
+
+        criteriaQuery.select(brandRoot).distinct(true);
+
+        List<Brand> brands = session.createQuery(criteriaQuery).getResultList();
+        for (Brand brand : brands) {
+            System.out.println(brand);
+            List<Product> products = brand.getProducts();
+            for (Product product : products) {
+                System.out.println("  " + product);
+            }
+        }
+
+        session.close();
+        sessionFactory.close();
+    }
+
+}
+

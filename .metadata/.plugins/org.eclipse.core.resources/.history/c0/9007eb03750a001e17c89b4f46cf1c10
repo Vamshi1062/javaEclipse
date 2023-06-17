@@ -1,0 +1,17 @@
+package cgg.lambdas;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class SampleExample {
+
+	public static void main(String[] args) {
+		List<Person> people = Arrays.asList(new Person("Raj", "Shekar", 21), new Person("Sanju", "Pottabttni", 22),
+				new Person("Ajay", "Mahankali", 20), new Person("Vamshi", "Botla", 21));
+		//step1 sort list by last name
+		Collections.sort(people,(p1,p2)->p1.getLname().compareTo(p2.getLname()));
+
+	}
+
+}

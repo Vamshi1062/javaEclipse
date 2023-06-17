@@ -1,0 +1,17 @@
+package cgg.defaultandstaticmethods;
+
+import java.util.List;
+
+public interface MyInterface {
+default public List<Student> sortStudents(List<Student> stuList)
+Collections.sort(stuList);
+return stuList;
+
+int getMaxNum(List<Integer> intList);
+public static void greet(String string) {
+	// TODO Auto-generated method stub
+	
+}
+}
+static public void 
+}

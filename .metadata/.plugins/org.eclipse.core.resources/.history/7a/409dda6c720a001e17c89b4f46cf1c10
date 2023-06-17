@@ -1,0 +1,17 @@
+package cgg.lambdas;
+
+import java.util.Arrays;
+
+public class ForEachExample {
+
+	public static void main(String[] args) {
+		 Arrays.asList(
+				 new Person("Raj","Shekar",21),
+				 new Person("Sanju","Pottabttni",22),
+				 new Person("Ajay","Mahankali",20),
+				 new Person("Vamshi","Botla",21)
+				 );
+
+	}
+
+}

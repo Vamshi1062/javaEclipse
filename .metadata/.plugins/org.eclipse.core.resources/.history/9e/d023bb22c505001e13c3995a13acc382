@@ -1,0 +1,33 @@
+package cgg.hibernate.secondlevelcache;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import cgginterns.hibernate.Student;
+import cgginterns.hibernate.map1.Brand;
+
+public class Test {
+
+	public static void main(String[] args) {
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		 Session session = factory.openSession();
+		 Brand  b1 = session.get(Brand.class,102);
+		 System.out.println(b1);
+		    
+		 session.close();
+		 Session session2 = factory.openSession();
+		  
+		 Student  s2 = session2.get(Student.class,102);
+		 System.out.println(s2);
+		 
+		 
+		 
+		 session2.close();
+		 
+		 
+		 factory.close();
+
+	}
+
+}

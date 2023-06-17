@@ -1,0 +1,27 @@
+package cgg.io;
+
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
+public class WriteIntDemo {
+
+	public static void main(String[] args) {			 
+		 try {
+			 OutputStream ou=new FileOutputStream("nums.txt");
+			 DataOutputStream dos=new  DataOutputStream(ou);
+			 for(int i=0;i<=10;i++) {
+			 dos.writeInt(i);
+			 
+		 }
+			 dos.flush();
+			 dos.close();
+			 ou.close();
+		 }
+		 catch(Exception e){
+			 System.out.println(e);
+		 }
+
+	}
+
+}

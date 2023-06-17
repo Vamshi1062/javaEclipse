@@ -1,0 +1,25 @@
+package cgg.hibernate.hql;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HQLDemo {
+
+	public static void main(String[] args) {
+		 SessionFactory fact=new Configuration().configure().buildSessionFactory();
+		 Session ses=fact.openSession();
+		 //HQL Syntax
+		 String query="from Student";
+		 ses.createQuery(query);
+		 
+		 
+		 
+		 
+		 
+		 ses.close();
+		 fact.close();
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package cgg.io;
+
+import java.io.File;
+
+public class FileDemo {
+
+	public static void main(String[] args) {
+		String fname=args[0];
+		File file=new File(fname);
+		
+		System.out.println("File name"+file.getName());
+
+	}
+
+}

@@ -1,0 +1,53 @@
+package cgg.periodduration;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
+
+public class PeriodExample {
+
+	public static void main(String[] args) {
+		 LocalDate start = LocalDate.of(2014,Month.JUNE, 2);
+		 LocalDate end = LocalDate.now();
+		 
+		 Period period = start.until(end);
+		 System.out.println("Days "+period.get(ChronoUnit.DAYS));
+         System.out.println("Months "+period.get(ChronoUnit.MONTHS));
+         System.out.println("Years "+period.get(ChronoUnit.YEARS));
+         
+         System.out.println("-----------------------------------------");
+         
+         LocalDate  id = LocalDate.now();
+         LocalDate fd = id.plus(Period.ofDays(5));
+         System.out.println(fd);
+         
+         int days= Period.between(id, fd).getDays();
+         System.out.println(days+" days");
+         
+         
+         System.out.println("-----------------------------------------");
+         
+         long between = ChronoUnit.DAYS.between(id, fd);
+         System.out.println(between+" days");
+         
+         
+         System.out.println("-----------------------------------------");
+         LocalDate  today = LocalDate.now();
+         
+         LocalDate  dob = LocalDate.of(1945,Month.JANUARY,26);
+         
+         Period p = Period.between(dob,today);
+         long  p1 = ChronoUnit.DAYS.between( dob,today);
+         
+         System.out.println("You are "+p.getYears()+" years "+p.getMonths()+" months "+p.getDays()+" days");
+         
+         System.out.println(p1+" Total days");
+         
+         //To Calculate Next Birthday
+         
+         LocalDate date = dob.plusYears(1);
+         System.out.println(date);
+	}
+
+}
